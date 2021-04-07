@@ -9,14 +9,14 @@ class App {
     this.database();
     this.middlewares();
     this.routes();
-
+    
     this.express.listen(3000, () =>
       console.log(`Sua API REST está funcionando na porta 3000 `)
     );
   }
 
   database() {
-    mongoose.connect(db.uri, { useNewUrlParser: true });
+    mongoose.connect(db.uri, { useNewUrlParser: true ,useUnifiedTopology: true});
   }
 
   middlewares() {
