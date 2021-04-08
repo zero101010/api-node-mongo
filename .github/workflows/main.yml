@@ -33,8 +33,8 @@ jobs:
     - id: get-credentials
       uses: google-github-actions/get-gke-credentials@main
       with:
-        cluster_name: my-cluster
-        location: us-central1-a
+        cluster_name: jarvis
+        location: us-central1-c
         credentials: ${{ secrets.gcp_credentials }}
     - id: get-nodes
       run: kubectl get nodes
