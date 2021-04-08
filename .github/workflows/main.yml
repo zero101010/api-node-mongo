@@ -3,7 +3,8 @@ name: Node.js CI
 on: [push]
 
 jobs:
-  install:
+
+  release:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -11,10 +12,17 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '10.x'
-    - run: npm ci
-
-    - name: Cache multiple paths
-      uses: actions/cache@v2
-      with:
-        path: node_modules
-        key: ${{ runner.os }}-cache
+    - run: |
+        cp .env.example .env
+        npm install
+        ls
+    - name: Docker push
+      env:
+        DOCKER_USER: ${{secrets.DOCKER_USER}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+        IMAGE: zero101010/monprospecteur
+      run: |
+        ls
+        docker login -u zero101010 -p $DOCKER_PASSWORD
+        docker build -t $IMAGE:$GITHUB_SHA .
+        docker push $IMAGE:$GITHUB_SHA

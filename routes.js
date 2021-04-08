@@ -10,4 +10,8 @@ routes.post("/clientes", DocumentsController.store);
 
 routes.post("/login", Authenticate.login);
 
+routes.get("/", (req,res)=>{
+    return res.json({"Versão":"1","Status":"Up"}); 
+});
+
 module.exports = routes;
