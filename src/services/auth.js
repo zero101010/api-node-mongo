@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 require("dotenv-safe").config();
+const bcrypt = require('bcryptjs');
 class Authenticate {
     verifyJWT(req, res, next){
         const token = req.headers['x-access-token'];
@@ -14,8 +15,10 @@ class Authenticate {
         });
     }
     login(req, res){
+        // Como não tenho usuário deixei salvo o hash aqui fixo para somente fazer um login, caso tivessemos um banco, buscariamos o hash e o user do banco
+        const hash = "$2a$10$gIMWOE1an7EGG1KIPdCra.VVMQ4hvf2ePaaxA7bvpK./5snn1mmry"
         //esse teste abaixo deve ser feito no seu banco de dados
-        if(req.body.user === 'luiz' && req.body.password === '123'){
+        if(req.body.user === 'igor' &&  bcrypt.compareSync(req.body.password, hash)){
           //auth ok
           const id = 1; 
           //esse id viria do banco de dados caso tivessemos um usuário cadastrado
