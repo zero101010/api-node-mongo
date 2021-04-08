@@ -28,6 +28,7 @@ jobs:
   #       docker push $IMAGE:$GITHUB_SHA
 
   deploy:
+    runs-on: ubuntu-latest
     steps:
     - id: get-credentials
       uses: google-github-actions/get-gke-credentials@main
