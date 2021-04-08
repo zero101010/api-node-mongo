@@ -37,4 +37,4 @@ jobs:
         location: us-central1-c
         credentials: ${{ secrets.gcp_credentials }}
     - id: get-nodes
-      run: kubectl get nodes
+      run: helm list
