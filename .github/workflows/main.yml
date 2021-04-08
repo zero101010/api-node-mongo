@@ -16,6 +16,5 @@ jobs:
     - name: Cache multiple paths
       uses: actions/cache@v2
       with:
-        path: |
-          node_modules
-        key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+        path: node_modules
+        key: ${{ runner.os }}-cache
