@@ -1,0 +1,5 @@
+release:
+  name: api-mongo
+  image: 
+  containerPort: 4200
+  port: 80

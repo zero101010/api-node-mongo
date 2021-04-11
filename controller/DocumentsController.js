@@ -1,5 +1,4 @@
 const Documents = require("../model/Documents");
-var mongoosePaginate = require('mongoose-paginate');
 const cors = require('cors');
 class DocumentsController {
   async store(req, res) {

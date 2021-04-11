@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: api-mongo-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "cert-manager-config"
+spec:
+  tls:
+  - hosts:
+    - medabots.devopstests.com
+    secretName: letsencrypt-prod
+  rules:
+  - host: medabots.devopstests.com
+    http:
+      paths:
+      - backend:
+          serviceName: api-mongo
+          servicePort: 80
