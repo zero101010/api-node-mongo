@@ -14,6 +14,7 @@ spec:
     spec:
       containers:
       - name: api-mongo
-        image: zero101010/monprospecteur:4fb468e21110533b711e0ef6e78d5922962bf761
+        image: zero101010/monprospecteur:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 3000

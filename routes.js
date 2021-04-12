@@ -4,9 +4,7 @@ const routes = express.Router();
 const DocumentsController = require("./controller/DocumentsController");
 const Authenticate = require("./services/auth");
 
-routes.get("/clientes", DocumentsController.index);
-
-// routes.post("/clientes", DocumentsController.store);
+routes.get("/clients", DocumentsController.index);
 
 routes.post("/login", Authenticate.login);
 
