@@ -9,6 +9,7 @@ spec:
   tls:
   - hosts:
     - api.devopstests.com
+    - front.devopstests.com
     secretName: echo-tls
   rules:
   - host: api.devopstests.com
@@ -17,3 +18,9 @@ spec:
       - backend:
           serviceName: api-mongo
           servicePort: 80
+  - host: front.devopstests.com
+    http:
+      paths:
+      - backend:
+          serviceName: front-monprospecteur
+          servicePort: 4200
