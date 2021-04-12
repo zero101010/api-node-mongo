@@ -22,9 +22,7 @@ class Authenticate {
           //auth ok
           const id = 1; 
           //esse id viria do banco de dados caso tivessemos um usuário cadastrado
-          const token = jwt.sign({ id }, process.env.SECRET, {
-            expiresIn: 300 // expires in 5min
-          });
+          const token = jwt.sign({ id }, process.env.SECRET);
           return res.json({ auth: true, token: token });
         }
         

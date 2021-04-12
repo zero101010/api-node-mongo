@@ -3,7 +3,21 @@ name: Node.js CI
 on: [push]
 
 jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - run: |
+        cp .env.example .env
+        npm install
+        npm run test
+
   release:
+    needs: tests
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
