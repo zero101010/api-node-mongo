@@ -1,4 +1,5 @@
 const Documents = require("../model/Documents");
+var cors = require('cors');
 class DocumentsController {
 
   async index(req, res) {
