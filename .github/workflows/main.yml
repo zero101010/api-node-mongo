@@ -51,4 +51,4 @@ jobs:
         location: us-central1-c
         credentials: ${{ secrets.gcp_credentials }}
     - id: get-nodes
-      run: kubectl apply -f K8S/
+      run: kubectl rollout restart deployment/api-mongo
