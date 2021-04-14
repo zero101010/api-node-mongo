@@ -1,4 +1,9 @@
 # Monprospecteur api with mongo
+## Link para acessar a aplicação em prod
+- https://api.devopstests.com/
+## Endpoints 
+- /clients?address=rue (Retorna todos os records do banco que possuem rue no contains)
+- /(Home para verificar versão) 
 ## Instalação
 - É necessário instalar as dependências dos projetos executando o `npm install`
 
